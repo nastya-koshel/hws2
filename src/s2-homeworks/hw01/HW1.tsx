@@ -6,10 +6,10 @@ import FriendMessage from './friend-message/FriendMessage'
 import avatar from './avatar.png'
 
 /*
-* 1 - описать тип MessageType
-* 2 - описать тип MessagePropsType в файле Message.tsx
+* 1 - описать тип MessageType СДЕЛАНО
+* 2 - описать тип MessagePropsType в файле Message.tsx СДЕЛАНО
 * 3 - в файле Message.tsx отобразить приходящие данные
-* 4 - выполнить пункты 2, 3 в файле FriendMessage.tsx
+* 4 - выполнить пункт 3 в файле FriendMessage.tsx
 * 5 - сделать стили в соответствии с дизайном
 * */
 
