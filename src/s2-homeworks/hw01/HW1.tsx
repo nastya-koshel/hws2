@@ -32,22 +32,22 @@ export const message0: MessageType = {
     id: 0,
     user: {
         avatar: avatar, // можно менять
-        name: 'Some Name',  // можно менять
+        name: 'Alex',  // можно менять
     },
     message: {
-        text: 'some textsome textsome textsome textsome textsome textsome text', // можно менять
-        time: '22:00', // можно менять
+        text: 'Hey! How was your day?', // можно менять
+        time: '15:30', // можно менять
     },
 }
 export const friendMessage0: MessageType = {
     id: 100,
     user: {
         avatar: avatar, // можно менять
-        name: 'Friend Name', // можно менять
+        name: 'Jamie', // можно менять
     },
     message: {
-        text: 'зеркальное сообщение для тренировки css', // можно менять
-        time: '22:00', // можно менять
+        text: 'Pretty good! Just finished work. You?', // можно менять
+        time: '15:41', // можно менять
     },
 }
 
