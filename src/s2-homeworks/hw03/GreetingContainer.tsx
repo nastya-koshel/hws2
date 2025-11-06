@@ -13,6 +13,7 @@ export const pureAddUser = (name: UserType['name'], setError: any, setName: any,
     } else {
         addUserCallback(name.trim())
         setName('')
+        setError('')
     }
     // если имя пустое - показать ошибку, иначе - добавить юзера и очистить инпут
 }
@@ -41,7 +42,7 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({
 
     const setNameCallback = (e: React.ChangeEvent<HTMLInputElement>) => { // need to fix any
         setName(e.target.value) // need to fix
-        error && setError('')
+        setError('')
     }
     const addUser = () => {
         pureAddUser(name, setError, setName, addUserCallback)
