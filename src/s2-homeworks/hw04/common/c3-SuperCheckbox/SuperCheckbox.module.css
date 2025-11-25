@@ -3,6 +3,9 @@
     align-items: center;
 
     cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 400;
 }
 
 /*input[type="checkbox"] - no*/
