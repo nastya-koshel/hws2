@@ -11,7 +11,11 @@ import s from './SuperInputText.module.css'
 type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
     HTMLInputElement>
 
-// здесь мы говорим что у нашего инпута будут такие же пропсы как у обычного инпута, кроме type
+// InputHTMLAttributes<HTMLInputElement> - это ВСЕ возможные атрибуты для <input>
+// DetailedHTMLProps<..., HTMLInputElement> - оборачивает их в правильный тип для React
+// type DefaultCarType = ВсеДеталиМашины<ДеталиДляСедана, Седан>
+
+// здесь мы говорим что у нашего инпута будут такие же пропсы как у обычного инпута, кроме type (Потому что наш компонент всегда будет type="text", и мы не хотим чтобы кто-то мог передать type="password" или type="number")
 // (чтоб не писать value: string, onChange: ...; они уже все описаны в DefaultInputPropsType)
 type SuperInputTextPropsType = Omit<DefaultInputPropsType, 'type'> & {
     // и + ещё пропсы которых нет в стандартном инпуте
@@ -37,8 +41,9 @@ const SuperInputText: React.FC<SuperInputTextPropsType> = (
 ) => {
     const onChangeCallback = (e: ChangeEvent<HTMLInputElement>) => {
         onChange?.(e) // если есть пропс onChange, то передать ему е (поскольку onChange не обязателен)
-
+        // if (onChange) onChange(e)
         onChangeText?.(e.currentTarget.value)
+        // if (onChangeText) onChangeText(e.target.value)
     }
     const onKeyPressCallback = (e: KeyboardEvent<HTMLInputElement>) => {
         onKeyPress?.(e)
