@@ -1,23 +1,31 @@
 .item {
+
 }
 
 .item:last-of-type {
+
 }
 
 .users {
+
 }
 
 .buttonsContainer {
 }
 
 .container {
+    width: 600px;
 }
 
 .thead {
+    /*background-color: #E5E5E5;*/
+    /*display: flex;*/
 }
 
 .nameCol {
+
 }
 
 .ageCol {
+
 }
