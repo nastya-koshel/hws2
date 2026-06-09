@@ -19,5 +19,10 @@ html {
 }
 
 .select {
+}
 
+.inputTitle {
+    font-weight: 400;
+    font-size: 14px;
+    margin: 6px 0;
 }
