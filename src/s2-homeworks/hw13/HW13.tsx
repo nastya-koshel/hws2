@@ -7,6 +7,7 @@ import success200 from './images/200.svg'
 import error400 from './images/400.svg'
 import error500 from './images/500.svg'
 import errorUnknown from './images/error.svg'
+import {LinearProgress} from "@mui/material";
 
 /*
 * 1 - дописать функцию send
@@ -36,11 +37,21 @@ const HW13 = () => {
             .then((res) => {
                 setCode('Код 200!')
                 setImage(success200)
-                // дописать
-
+                setText(`${res.data.errorText} \n ${res.data.info}`)
+                setInfo('')
             })
             .catch((e) => {
-                // дописать
+                if (e.response.status) {
+                    setCode(`Ошибка ${e.response.status}!`)
+                    setImage(e.response.status === 400 ? error400 : error500)
+                    setText(`${e.response.data.errorText} \n ${e.response.data.info}`)
+                    setInfo('')
+                } else {
+                    setCode(`Error!`)
+                    setImage(errorUnknown)
+                    setText(`${e.message}\n${e.name}`)
+                    setInfo('')
+                }
 
             })
     }
@@ -48,15 +59,15 @@ const HW13 = () => {
     return (
         <div id={'hw13'}>
             <div className={s2.hwTitle}>Homework #13</div>
-
+            {!!info ?  <LinearProgress color="primary" aria-label="Loading…" /> : null}
             <div className={s2.hw}>
                 <div className={s.buttonsContainer}>
                     <SuperButton
                         id={'hw13-send-true'}
                         onClick={send(true)}
                         xType={'secondary'}
+                        disabled={!!info}
                         // дописать
-
                     >
                         Send true
                     </SuperButton>
@@ -64,8 +75,8 @@ const HW13 = () => {
                         id={'hw13-send-false'}
                         onClick={send(false)}
                         xType={'secondary'}
+                        disabled={!!info}
                         // дописать
-
                     >
                         Send false
                     </SuperButton>
@@ -73,8 +84,8 @@ const HW13 = () => {
                         id={'hw13-send-undefined'}
                         onClick={send(undefined)}
                         xType={'secondary'}
+                        disabled={!!info}
                         // дописать
-
                     >
                         Send undefined
                     </SuperButton>
@@ -82,8 +93,8 @@ const HW13 = () => {
                         id={'hw13-send-null'}
                         onClick={send(null)} // имитация запроса на не корректный адрес
                         xType={'secondary'}
+                        disabled={!!info}
                         // дописать
-
                     >
                         Send null
                     </SuperButton>
@@ -101,9 +112,9 @@ const HW13 = () => {
                         <div id={'hw13-text'} className={s.text}>
                             {text}
                         </div>
-                        <div id={'hw13-info'} className={s.info}>
-                            {info}
-                        </div>
+                        {/*<div id={'hw13-info'} className={s.info}>*/}
+                        {/*    {info}*/}
+                        {/*</div>*/}
                     </div>
                 </div>
             </div>
